@@ -1,0 +1,19 @@
+name: Landing page builder
+
+on:
+  push:
+    branches: [main]
+    paths: ["./site"]
+  workflow_dispatch:
+    
+jobs:
+  build:
+    concurrency: landing-build-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: site
