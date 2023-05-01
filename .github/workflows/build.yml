@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    
+
 jobs:
   build:
     concurrency: landing-build-${{ github.ref }}
@@ -15,3 +15,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: site
+        single-commit: true
