@@ -1,0 +1,14 @@
+body {
+  background-color: lightsteelblue;
+}
+
+.my-name-style {
+  color: black;
+  font-family: "Anton" sans-serif;
+  font-style: italic;
+}
+
+.menu-style a {
+  color: black;
+  font-family: "Source Sans Pro", sans-serif;
+}
