@@ -19,7 +19,7 @@ jobs:
     concurrency: dom-rodriguez-build-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Create supporting file (.nojekyll)
       run: touch ./site/.nojekyll
     - name: Deploy to GitHub Pages
