@@ -1,16 +1,27 @@
-name: Landing page builder
+name: Blog website builder
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
+  push:
+    branches:
+      - staging
+      - live
+    paths:
+      - site/**
 
 jobs:
-  build:
-    concurrency: landing-build-${{ github.ref }}
+  build-and-deploy:
+    name: Build & deploy site to GitHub Pages.
+    permissions:
+      actions: read
+      contents: write
+      pages: write
+    concurrency: dom-rodriguez-build-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Create supporting file (.nojekyll)
+      run: touch ./site/.nojekyll
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
