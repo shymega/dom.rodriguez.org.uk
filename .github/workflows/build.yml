@@ -2,7 +2,11 @@ name: Landing page builder
 
 on:
   push:
-    branches: [main]
+    paths:
+      - site/**
+    branches:
+      - live
+      - staging
   workflow_dispatch:
 
 jobs:
